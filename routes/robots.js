@@ -27,6 +27,8 @@ router.get('/robots/:id', function(req, res, next) {
   var robotId = req.params.id;
   var errorMessage = `OOPS - COULDN'T FIND ROBOT ${robotId}`
   var url = `https://southernct-443-robots-api.herokuapp.com/api/robots/${robotId}`
+  //The same as the one above. Difference is called string interpolation^^. Bot is Concatination basically adding like in java
+  //var url = "https://southernct-443-robots-api.herokuapp.com/api/robots/" + robotID
 
   fetch(url)
     .then(function(response) {
