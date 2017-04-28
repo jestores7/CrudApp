@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
 
+
+
 /* List Robots */
 
 router.get('/robots', function(req, res, next) {
@@ -20,6 +22,15 @@ router.get('/robots', function(req, res, next) {
       res.send({error: `OOPS - SERVER ERROR ${err}`});
     })
 });
+
+/* New Robot */
+
+router.get('/robots/new', function(req, res, next) { // handle GET requests to the robots/new URL path
+  res.render('robots/new', { // render the robots/new.ejs view
+    title: "New Robot"
+  })
+})
+
 
 /* Show Robot */
 
@@ -47,5 +58,7 @@ router.get('/robots/:id', function(req, res, next) {
       res.send(errorMessage)
     })
 });
+
+
 
 module.exports = router;
