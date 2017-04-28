@@ -2,7 +2,12 @@ var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
 
-
+var baseUrl
+if (true == false) {
+  baseUrl = "http://localhost:3003"
+} else {
+  baseUrl = "https://southernct-443-robots-api.herokuapp.com"
+}
 
 /* List Robots */
 
@@ -37,6 +42,7 @@ router.get('/robots/new', function(req, res, next) { // handle GET requests to t
 router.get('/robots/:id', function(req, res, next) {
   var robotId = req.params.id;
   var errorMessage = `OOPS - COULDN'T FIND ROBOT ${robotId}`
+  const endpointUrl = `${baseUrl}/api/robots/${robotId}`
   var url = `https://southernct-443-robots-api.herokuapp.com/api/robots/${robotId}`
   //The same as the one above. Difference is called string interpolation^^. Bot is Concatination basically adding like in java
   //var url = "https://southernct-443-robots-api.herokuapp.com/api/robots/" + robotID
@@ -46,7 +52,7 @@ router.get('/robots/:id', function(req, res, next) {
       response.json()
         .then(function(json){
           console.log("SHOWING ROBOT", json)
-          res.render('robots/show', {robot: json, title: `Robot ${robotId}`});
+          res.render('robots/show', {robot: json, title: `Robot ${robotId}`,requestUrl: endpointUrl});
         })
         .catch(function(err){
           console.log("JSON PARSE ERROR", err)

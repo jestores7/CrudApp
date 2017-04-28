@@ -11,14 +11,13 @@
     <p>Description: <%= robot.description %></p>
     <p>Stock: <%= robot.in_stock %></p>
 
-
     <button id="delete">Delete</button>
     <script type="text/javascript">
         var deleteButton = document.getElementById("delete")
         deleteButton.addEventListener("click", deleteRobot, false)
         function deleteRobot()
         {
-
+          const requestUrl = "<%= requestUrl %>"
           const requestOptions =
           {
             method: "DELETE",
