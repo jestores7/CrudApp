@@ -11,11 +11,15 @@
     <p>Description: <%= robot.description %></p>
     <p>Stock: <%= robot.in_stock %></p>
 
+ <a href="/robots/<%= robot._id %>/edit">
+    <button id="edit" >Edit</button>
+ </a>
+
     <button id="delete">Delete</button>
     <script type="text/javascript">
         var deleteButton = document.getElementById("delete")
-        deleteButton.addEventListener("click", deleteRobot, false)
-        function deleteRobot()
+        deleteButton.addEventListener("click", deleteBot, false)
+        function deleteBot()
         {
           const requestUrl = "<%= requestUrl %>"
           const requestOptions =
