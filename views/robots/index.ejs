@@ -2,16 +2,19 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
     <h1>Robots List</h1>
 
     <a href="/robots/new">
-      <button>+ New Robot </button>
+      <button type="button">+ New Robot </button>
     </a>
-
+    <br>
+    <br>
     <p> There are <%= robots.length %> Robots </p>
+
+    <table>
 
         <ul>
           <% robots.forEach(function(robot){ %>
